@@ -26,9 +26,6 @@
 //     }
 // }
 class Tarefa {
-    titulo;
-    descricao;
-    entrada;
     constructor(titulo, descricao) {
         this.titulo = titulo;
         this.descricao = descricao;
@@ -36,8 +33,16 @@ class Tarefa {
     }
     renderizar() {
         const li = document.createElement('li');
-        li.innerHTML = `Título: ${this.titulo}<br>Descrição da tarefa: ${this.descricao}<br>
+        const check = document.createElement('input');
+        check.type = "checkbox";
+        li.appendChild(check);
+        const span = document.createElement('span');
+        span.innerHTML = `Título: ${this.titulo}<br>Descrição da tarefa: ${this.descricao}<br>
         Data da criação: ${this.entrada.toLocaleString("pt-BR")}`;
+        li.appendChild(span);
+        check.addEventListener("change", () => {
+            li.classList.toggle("riscado", check.checked);
+        });
         return li;
     }
 }
@@ -50,9 +55,10 @@ class Tarefa {
 // });
 const adicionaTarefa = document.getElementById('adicionaTarefa');
 adicionaTarefa.addEventListener('click', () => {
+    var _a;
     const novoTitulo = document.getElementById('tituloInput');
     const novoDescricao = document.getElementById('descricaoInput');
     const novaTarefa = new Tarefa(novoTitulo.value, novoDescricao.value);
-    document.getElementById('tarefa')?.appendChild(novaTarefa.renderizar());
+    (_a = document.getElementById('tarefa')) === null || _a === void 0 ? void 0 : _a.appendChild(novaTarefa.renderizar());
 });
 //# sourceMappingURL=teste.js.map

@@ -48,8 +48,14 @@ class Tarefa {
         const li = document.createElement('li');
         const check = document.createElement('input');
         check.type = "checkbox";
-        li.innerHTML = `Título: ${this.titulo}<br>Descrição da tarefa: ${this.descricao}<br>
+        li.appendChild(check);
+        const span = document.createElement('span');
+        span.innerHTML = `Título: ${this.titulo}<br>Descrição da tarefa: ${this.descricao}<br>
         Data da criação: ${this.entrada.toLocaleString("pt-BR")}`;
+        li.appendChild(span);
+        check.addEventListener("change", () => {
+            li.classList.toggle("riscado", check.checked);
+        });
         return li;
     }
 }

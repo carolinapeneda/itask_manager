@@ -1,0 +1,107 @@
+.container {
+    max-width: 2000px;
+    margin: 40px;
+    font-family: "Schoolbell", cursive;
+    font-weight: 400;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tarefaInput {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+}
+
+h1 {
+    font-size: 90px;
+    margin-top: -5px;
+}
+
+.titulo {
+    font-size: 30px;
+}
+
+#tituloInput, #descricaoInput {
+    border: solid black 1px;
+    border-radius: 20px;
+    width: 300px;
+    height: 35px;
+    padding: 10px 15px;
+}
+
+#tituloInput::placeholder {
+    font-family: "Schoolbell", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+input {
+    font-family: "Schoolbell", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+}
+
+input:focus {
+    font-family: "Schoolbell", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+}
+
+button {
+    border: solid black 1px;
+    border-radius: 20px;
+    padding: 10px 15px;
+    background-color: orange;
+    font-family: "Schoolbell", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.schoolbell-regular {
+    font-family: "Schoolbell", cursive;
+    font-weight: 400;
+    font-style: normal;
+
+}
+
+.riscado {
+    text-decoration: line-through;
+    background-color: #d1e1bc;
+}
+
+.tarefa-box {
+    padding: 70px;
+    margin-top: 8px;
+    border: dashed black 1px;
+    transition: .2s;
+    border-radius: 20px;
+    width: 300px;
+}
+
+#tarefa{
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.titulo, .descricao {
+    overflow-wrap: break-word;
+    max-width: 100%;
+}
+
+.forms {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}

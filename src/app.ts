@@ -1,37 +1,14 @@
-// // Selecionando pelo ID e definindo o tipo
-// const titulo = document.getElementById('titulo-principal') as HTMLHeadingElement;
+const inputTitulo = document.getElementById('tituloInput') as HTMLInputElement;
+const inputDescricao = document.getElementById('descricaoInput') as HTMLInputElement;
+const botaoAdicionar = document.getElementById('adicionaTarefa');
 
-// // Selecionando pela Classe (.)
-// const paragrafo = document.querySelector('.descricao') as HTMLParagraphElement;
-
-// // Agora você pode alterar as propriedades:
-// titulo.textContent = "Título alterado pelo TS!";
-
-// const botao = document.querySelector('#meuBotao') as HTMLButtonElement;
-
-// botao.addEventListener('click', () => {
-//     alert('Você clicou no botão! 🚀');
-//     botao.style.backgroundColor = 'green';
-// });
-
-// function avisarTrainee() {
-//     alert("Você clicou no botão através do HTML!");
-// }
-
-// class Membro {
-//     nome: string;
-
-//     constructor(nomeRecebido: string) {
-//         this.nome = nomeRecebido;
-//     }
-
-//     renderizar() {
-//         const li = document.createElement('li');
-//         li.innerHTML = 
-//             `<strong>${this.nome}</strong>`;
-//         return li;
-//     }
-// }
+botaoAdicionar?.addEventListener('click', () => {
+    if(inputTitulo && inputDescricao) {
+        inputTitulo.value = '';
+        inputDescricao.value = '';
+        inputTitulo.focus();
+    }
+});
 
 class Tarefa {
     titulo: string;
@@ -45,28 +22,37 @@ class Tarefa {
     }
 
     renderizar() {
-        const li = document.createElement('li');
+
+        const li = document.createElement('div');
+        li.classList.add("tarefa-box");
+
         const check = document.createElement('input');
         check.type = "checkbox";
+
+        const titulo = document.createElement('h3');
+        titulo.classList.add("titulo");
+        titulo.textContent = this.titulo;
+
+        const descricao = document.createElement('p');
+        descricao.classList.add("descricao");
+        descricao.textContent = this.descricao;
+
+        const data = document.createElement('p');
+        data.classList.add("data");
+        data.textContent = this.entrada.toLocaleString("pt-BR");
+
         li.appendChild(check);
-        const span = document.createElement('span');
-        span.innerHTML = `Título: ${this.titulo}<br>Descrição da tarefa: ${this.descricao}<br>
-        Data da criação: ${this.entrada.toLocaleString("pt-BR")}`;
-        li.appendChild(span);
+        li.appendChild(titulo);
+        li.appendChild(descricao);
+        li.appendChild(data);
+        
         check.addEventListener("change", () => {
             li.classList.toggle("riscado", check.checked);
         });
+
         return li;
     }
 }
-
-// Lógica de manipulação do DOM
-// const btn = document.getElementById('addBtn') as HTMLButtonElement;
-// btn.addEventListener('click', () => {
-//     const input = document.getElementById('membroInput') as HTMLInputElement;
-//     const novoMembro = new Membro(input.value);
-//     document.getElementById('lista')?.appendChild(novoMembro.renderizar());
-// });
 
 const adicionaTarefa = document.getElementById('adicionaTarefa') as HTMLButtonElement;
 adicionaTarefa.addEventListener('click', () => {
